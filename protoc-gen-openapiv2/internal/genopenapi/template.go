@@ -531,7 +531,7 @@ func renderMessageAsDefinition(msg *descriptor.Message, reg *descriptor.Registry
 	}
 
 	schema.Required = filterOutExcludedFields(schema.Required, pathParams)
-
+	schema.Properties = &openapiSchemaObjectProperties{}
 	for _, f := range msg.Fields {
 		if !isVisible(getFieldVisibilityOption(f), reg) {
 			continue
